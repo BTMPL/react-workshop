@@ -1,14 +1,27 @@
-#9 propTypes i defaulltProps
+#10 Sprzątanie propTypes
 
-- używanie propTypes stanowi rodzaj dokumentacji komponentu
-- używanie defaultProps może uchronić nas przed problemami z wyświetlaniem "undefined"
+- nasze props (dla komponentu Tweet) rozrastają się - jeżeli dodamy jeszcze kilka 
+zarządzanie nimi będzie utrudnione - zmieńmy je wszystkie w obiekt i jeden parametr - tweet
+  - obiekt wciąż powinien zawierać w sobie:
+    - user
+      - userName
+      - userAvatar
+    - date
+    - text
+  - zdefiniuj propTypes dla tego obiektu, defaultProps nie będzie nam tutaj potrzebny
+    - można go oczywiście zdefiniować, ale będzie zbyt rozbudowany na potrzeby warsztatu :)
 
-- dodaj do projektu pakiet "prop-types" pobierając jego domyślny eksport
+- utwórz tablicę obiektów o powyższym kształcie i użyj jej w App jako źródła listy
 
-- dodaj odpowiednie propTypes dla komponentów Tweet i UserDetails 
-  - sprawdź dostępne typy na [na stronie projektu](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
+Bonus: 
 
-- dodaj defaultProps do komponentu Tweet i UserDetails
-  - userName - domyślnie "Anonim"
+jeżeli chcesz przekazać wiele propów do komponentu, możesz zamiast
 
-- usuń userName z renderowania Tweet i sprawdź, czy działa poprawnie  
+  <Component prop1={object.prop1} prop2={object.prop2} props3={object.prop3} />
+
+użyć notacji
+
+  <Component {...object} />
+
+"Rozwinie" to obiekt na jego klucze i przekaże pary klucz i wartość. Przekazuje to WSZYSTKIE
+klucze z obiektu więc nie zawsze może być pożądane

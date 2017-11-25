@@ -47,34 +47,32 @@ describe("<UserDetails />", () => {
 })
 
 describe("<Tweet />", () => {
+  const date = new Date().toString()
+  const tweet = {
+    user: {
+      userName: 'test.userName',
+      userAvatar: 'test.userAvatar',
+    },
+    date: date,
+    text: 'test.text'
+  };
+
   it("renderuje <UserDetails> oraz <time>", () => {
-    const wrapper = mount(<Tweet />);
+    const wrapper = mount(<Tweet tweet={tweet} />);
     expect(wrapper.find(UserDetails).length).toEqual(1)
     expect(wrapper.find('time').length).toEqual(1)
   });
 
-  it("renderuje aktualną datę", () => {
-    const year = (new Date).getFullYear();
-    const wrapper = mount(<Tweet />);
-    expect(wrapper.find('time').html().indexOf(year) > -1).toEqual(true);
-  });
 
-  it("akceptuje userName, userAvatar i text", () => {
-    const userName = "test.username";
-    const userAvatar = "test.useravatar";
-    const text = "test.text";
-
-    const wrapper = mount(<Tweet userName={userName} userAvatar={userAvatar} text={text} />);
-    expect(wrapper.html().indexOf(userName) > -1).toEqual(true);
-    expect(wrapper.html().indexOf(userAvatar) > -1).toEqual(true);
-    expect(wrapper.html().indexOf(text) > -1).toEqual(true);
+  it("akceptuje prop 'tweet'", () => {
+    const wrapper = mount(<Tweet tweet={tweet} />);
+    expect(wrapper.html().indexOf(tweet.user.userName) > -1).toEqual(true);
+    expect(wrapper.html().indexOf(tweet.user.userAvatar) > -1).toEqual(true);
+    expect(wrapper.html().indexOf(tweet.text) > -1).toEqual(true);
   });
   
-  it("definiuje propTypes i defaultProps", () => {
-    expect(Tweet.propTypes.userName).toBeDefined();
-    expect(Tweet.propTypes.userAvatar).toBeDefined();
-
-    expect(Tweet.defaultProps.userName).toBeDefined();
+  it("definiuje propTypes dla propy 'tweet'", () => {
+    expect(Tweet.propTypes.tweet).toBeDefined();
   });
 
 })
