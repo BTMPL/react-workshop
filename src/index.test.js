@@ -96,5 +96,10 @@ describe("<TweetForm />", () => {
     const wrapper = mount(<TweetForm />);
     expect(wrapper.find('textarea').length).toEqual(1);
     expect(wrapper.find('button').length).toEqual(1);
+  });
+
+  it("obsługuje klikanie w guzik", () => {
+    const wrapper = mount(<TweetForm />);
+    expect(wrapper.find('button').props().onClick).toBeDefined();
   })
 })

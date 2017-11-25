@@ -1,7 +1,6 @@
-#13 Formularze niekontrolowane
+#14 Zdarzenia
 
-- utwórz komponent TweetForm a w nim formularz, zawierający pole tekstowe (`<textarea>`)
-oraz guzik (`<button>`)
-  - czy musimy używać tutaj `<form>`? 
-
-- wyświetl komponent nad listą Tweetów
+- upewnij się, że formularz TweetForm jest komponentem klasowym
+- dodaj zdarzenie onClick do `<button>`, które wyświetli wartość z pola tekstowego
+  - jak odnaleźć pole tekstowe?
+    - document.getElementById?
