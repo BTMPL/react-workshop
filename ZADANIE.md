@@ -1,8 +1,14 @@
-#8 Przekazywanie danych do komponentu
+#9 propTypes i defaulltProps
 
-- dostęp do danych globalnych nie jest bezpieczny ani wydajny
-- przekaż dane (userName, userAvatar) do komponentu Tweet jako parametry
-  - pamiętaj, że do "przełączenia się w tryb JS" używamy znaczników {}
-  - parametry będą dostępne jako pierwszy parametr (Obiekt) przekazany do komponentu
+- używanie propTypes stanowi rodzaj dokumentacji komponentu
+- używanie defaultProps może uchronić nas przed problemami z wyświetlaniem "undefined"
 
-- przekaż treść tweeto jako parametr (text) do komponentu Tweet
+- dodaj do projektu pakiet "prop-types" pobierając jego domyślny eksport
+
+- dodaj odpowiednie propTypes dla komponentów Tweet i UserDetails 
+  - sprawdź dostępne typy na [na stronie projektu](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
+
+- dodaj defaultProps do komponentu Tweet i UserDetails
+  - userName - domyślnie "Anonim"
+
+- usuń userName z renderowania Tweet i sprawdź, czy działa poprawnie  

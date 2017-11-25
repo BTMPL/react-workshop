@@ -37,6 +37,13 @@ describe("<UserDetails />", () => {
     expect(wrapper.html().indexOf(userName) > -1).toEqual(true);
     expect(wrapper.html().indexOf(userAvatar) > -1).toEqual(true);
   }); 
+
+  it("definiuje propTypes i defaultProps", () => {
+    expect(UserDetails.propTypes.userName).toBeDefined();
+    expect(UserDetails.propTypes.userAvatar).toBeDefined();
+
+    expect(UserDetails.defaultProps.userName).toBeDefined();
+  });  
 })
 
 describe("<Tweet />", () => {
@@ -61,6 +68,13 @@ describe("<Tweet />", () => {
     expect(wrapper.html().indexOf(userName) > -1).toEqual(true);
     expect(wrapper.html().indexOf(userAvatar) > -1).toEqual(true);
     expect(wrapper.html().indexOf(text) > -1).toEqual(true);
-  });  
+  });
+  
+  it("definiuje propTypes i defaultProps", () => {
+    expect(Tweet.propTypes.userName).toBeDefined();
+    expect(Tweet.propTypes.userAvatar).toBeDefined();
+
+    expect(Tweet.defaultProps.userName).toBeDefined();
+  });
 
 })
