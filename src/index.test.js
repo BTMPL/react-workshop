@@ -27,5 +27,11 @@ describe("<Tweet />", () => {
     expect(wrapper.find('img').length).toEqual(1)
     expect(wrapper.find('b').length).toEqual(1)
     expect(wrapper.find('time').length).toEqual(1)
+  });
+
+  it("renderuje aktualną datę", () => {
+    const year = (new Date).getFullYear();
+    const wrapper = mount(<Tweet />);
+    expect(wrapper.find('time').html().indexOf(year) > -1).toEqual(true);
   })
 })

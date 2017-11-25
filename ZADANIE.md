@@ -1,10 +1,7 @@
-#4 Komponenty w Komponentach
+#5 Używanie JS w komponentach
 
-- utwórz komponent Tweet, który reprezentuje wiadomość dodaną do naszej aplikacji
-  - wyeksportuj Tweet jako named export
-  - komponent Tweet powinien renderować:
-    - avatar użytkownika jako <img />
-    - imię użytkownika jako <b>
-    - datę (na sztywno) jako <time>
-    
-- w App wyrenderuj komponent Tweet
+- zapisz imię i link do avataru w zmiennych i wyświetl zmienne w JSX
+- spraw, by data pokazywana w <time> była zawsze aktualna - spróbuj nie używać zmiennych
+  - data powinna zawierać w sobie 4 cyfrowy, aktualny rok :)
+  - podpowiedź, aktualną datę możesz wygenerować używając:
+    const date = new Date();    
