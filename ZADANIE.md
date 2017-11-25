@@ -1,6 +1,6 @@
-#6 Unikanie powtarzania się
+#7 Unikanie powtarzania się - część 2 - listy
 
-- utwórz komponent UserDetails, który zawierać będzie avatar oraz imię użytkownika
-- użyj komponentu w Tweet zamiast dotychczasowego HTML
-- wyrenderuj 5 lub więcej Tweetów 
-  - bonus - jeżeli wiesz jak robi się to w React, użyj pętli :)
+- zamień ręcznie zapisane 5+ Tweetów w App na dynamiczną listę
+- możesz użyć [Array.prototype.map](https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/map)
+  - podpowiedź:
+    [0, 1, 2, 3, 4].map(....
