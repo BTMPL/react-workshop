@@ -43,6 +43,15 @@ describe("<App />", () => {
     const wrapper = mount(<App tweets={tweets} />);
     expect(wrapper.state().tweets).toEqual(tweets);
   });  
+
+  it("po wywołaniu handleSubmit dodaje nowy tweet do kolekcji", () => {
+    const tweets = [tweet];
+    const str = 'test.text';
+    const wrapper = mount(<App tweets={tweets} />);
+    wrapper.instance().handleSubmit(str);
+    expect(wrapper.state().tweets.length).toEqual(2);
+    expect(wrapper.state().tweets[0].text).toEqual(str);
+  });   
 })
 
 describe("<UserDetails />", () => {

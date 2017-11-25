@@ -1,11 +1,8 @@
-#15 Przekazywanie danych do rodzica
+#16 Aktualizowanie stanu rodzica
 
-- nasze dane są tylko w komponencie TweetForm - co jeżeli chcemy dodać je do listy?
-- przekazywanie danych do rodziców za pomocą callbacków!
-
-- dodaj do TweetForm callback `onSubmit`, który wywołasz, jeżeli podano tekst i wciśnięto
-klawisz (jeżeli tekst jest pusty, nie wywołuj funkcji)
-
-- niech to rodzic `TweetForm` - `App` - wyświetli wartość pola (metodą `handleSubmit`)
-
-- użyj props by wymusić przekazanie `onSubmit`, lub `defaultProps` by dodać pustą funkcję
+- wiemy już jak przekazać dane z dziecka do rodzica
+- dodajmy nowy Tweet!
+  - podpowiedź: pamiętaj o funkcji `this.setState`
+  - podpowiedź: do wykonania kopi aktualnej wartości zmiennej użyj `.concat()`, `.slice()` 
+    lub operatora spread
+- upewnij się, że nowy tweet dodany jest na górze strony (początku listy)
