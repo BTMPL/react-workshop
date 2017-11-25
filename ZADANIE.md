@@ -1,4 +1,4 @@
-#2 Wprowadzenie do ReactDOM.render
+#1 Wprowadzenie do tworzenia aplikacji
 
 - utwórz punkt startowy dla aplikacji jako src/index.js
 - uruchom aplikację komendą npm start
