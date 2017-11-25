@@ -16,6 +16,7 @@ document.body.appendChild(root);
 const App = require("./index.js").default;
 const Tweet = require("./index.js").Tweet;
 const UserDetails = require("./index.js").UserDetails;
+const TweetForm = require("./index.js").TweetForm;
 
 const date = new Date().toString()
 const tweet = {
@@ -88,4 +89,12 @@ describe("<Tweet />", () => {
     expect(Tweet.propTypes.tweet).toBeDefined();
   });
 
+})
+
+describe("<TweetForm />", () => {
+  it("zawiera pole tekstowe i guzik", () => {
+    const wrapper = mount(<TweetForm />);
+    expect(wrapper.find('textarea').length).toEqual(1);
+    expect(wrapper.find('button').length).toEqual(1);
+  })
 })

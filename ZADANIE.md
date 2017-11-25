@@ -1,4 +1,7 @@
-#12 Przepisywanie props do stanu komponentu
+#13 Formularze niekontrolowane
 
-- przepisz props `tweets` to `this.state.tweets` 
-  - bonus: użyj notacji class-properties
+- utwórz komponent TweetForm a w nim formularz, zawierający pole tekstowe (`<textarea>`)
+oraz guzik (`<button>`)
+  - czy musimy używać tutaj `<form>`? 
+
+- wyświetl komponent nad listą Tweetów
