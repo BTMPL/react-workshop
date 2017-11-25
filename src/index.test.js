@@ -7,7 +7,5 @@ import App from "./index.js";
 
 it("komponent App renderuje paragraf", () => {
   const wrapper = mount(<App />);
-  console.log(wrapper.text());
-  console.log(wrapper.html())
   expect(wrapper.find('p').length).toEqual(1)
 })
