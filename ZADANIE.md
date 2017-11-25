@@ -1,11 +1,10 @@
-#3 Komponenty
+#4 Komponenty w Komponentach
 
-- utwórz komponent App i wyrenderuj w nim strukturę z poprzedniego zadania:
-
-    <p>
-      Witaj na <b>Warsztatach React</b>!
-    </p> 
-
-- wyeksportuj komponent jako eksport domyślny pliku    
-
-- użyj npm test aby sprawdzić, czy zadanie wykonałeś poprawnie
+- utwórz komponent Tweet, który reprezentuje wiadomość dodaną do naszej aplikacji
+  - wyeksportuj Tweet jako named export
+  - komponent Tweet powinien renderować:
+    - avatar użytkownika jako <img />
+    - imię użytkownika jako <b>
+    - datę (na sztywno) jako <time>
+    
+- w App wyrenderuj komponent Tweet

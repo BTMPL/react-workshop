@@ -14,8 +14,18 @@ root.id = 'root';
 document.body.appendChild(root);
 
 const App = require("./index.js").default;
+const Tweet = require("./index.js").Tweet;
 
-it("komponent App renderuje paragraf", () => {
+it("komponent App renderuje Tweet", () => {
   const wrapper = mount(<App />);
-  expect(wrapper.find('p').length).toEqual(1)
+  expect(wrapper.find(Tweet).length).toEqual(1)
+})
+
+describe("<Tweet />", () => {
+  it("renderuje <img />, <b> oraz <time>", () => {
+    const wrapper = mount(<Tweet />);
+    expect(wrapper.find('img').length).toEqual(1)
+    expect(wrapper.find('b').length).toEqual(1)
+    expect(wrapper.find('time').length).toEqual(1)
+  })
 })
