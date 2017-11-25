@@ -17,9 +17,25 @@ const App = require("./index.js").default;
 const Tweet = require("./index.js").Tweet;
 const UserDetails = require("./index.js").UserDetails;
 
-it("komponent App renderuje 5 lub więcej Tweetów", () => {
-  const wrapper = mount(<App />);
-  expect(wrapper.find(Tweet).length >= 5).toEqual(true);
+const date = new Date().toString()
+const tweet = {
+  user: {
+    userName: 'test.userName',
+    userAvatar: 'test.userAvatar',
+  },
+  date: date,
+  text: 'test.text'
+};
+
+describe("<App />", () => {
+  it("jest klasą", () => {
+    expect(App.toString().indexOf('class App extends') > -1).toEqual(true);
+  });
+
+  it("akceptuje kolekcję Tweetów jako parametr", () => {
+    const wrapper = mount(<App tweets={[tweet]} />);
+    expect(wrapper.find(Tweet).length).toEqual(1);
+  });
 })
 
 describe("<UserDetails />", () => {
@@ -47,15 +63,6 @@ describe("<UserDetails />", () => {
 })
 
 describe("<Tweet />", () => {
-  const date = new Date().toString()
-  const tweet = {
-    user: {
-      userName: 'test.userName',
-      userAvatar: 'test.userAvatar',
-    },
-    date: date,
-    text: 'test.text'
-  };
 
   it("renderuje <UserDetails> oraz <time>", () => {
     const wrapper = mount(<Tweet tweet={tweet} />);
