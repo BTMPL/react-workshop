@@ -36,6 +36,12 @@ describe("<App />", () => {
     const wrapper = mount(<App tweets={[tweet]} />);
     expect(wrapper.find(Tweet).length).toEqual(1);
   });
+
+  it("przepisuje this.props.tweets do this.state.tweets", () => {
+    const tweets = [tweet];
+    const wrapper = mount(<App tweets={tweets} />);
+    expect(wrapper.state().tweets).toEqual(tweets);
+  });  
 })
 
 describe("<UserDetails />", () => {
