@@ -15,17 +15,25 @@ document.body.appendChild(root);
 
 const App = require("./index.js").default;
 const Tweet = require("./index.js").Tweet;
+const UserDetails = require("./index.js").UserDetails;
 
-it("komponent App renderuje Tweet", () => {
+it("komponent App renderuje 5 lub więcej Tweetów", () => {
   const wrapper = mount(<App />);
-  expect(wrapper.find(Tweet).length).toEqual(1)
+  expect(wrapper.find(Tweet).length >= 5).toEqual(true);
+})
+
+describe("<UserDetails />", () => {
+  it("renderuje <img /> oraz <b> ", () => {
+    const wrapper = mount(<UserDetails />);
+    expect(wrapper.find('img').length).toEqual(1)
+    expect(wrapper.find('b').length).toEqual(1)
+  });  
 })
 
 describe("<Tweet />", () => {
-  it("renderuje <img />, <b> oraz <time>", () => {
+  it("renderuje <UserDetails> oraz <time>", () => {
     const wrapper = mount(<Tweet />);
-    expect(wrapper.find('img').length).toEqual(1)
-    expect(wrapper.find('b').length).toEqual(1)
+    expect(wrapper.find(UserDetails).length).toEqual(1)
     expect(wrapper.find('time').length).toEqual(1)
   });
 

@@ -1,7 +1,6 @@
-#5 Używanie JS w komponentach
+#6 Unikanie powtarzania się
 
-- zapisz imię i link do avataru w zmiennych i wyświetl zmienne w JSX
-- spraw, by data pokazywana w <time> była zawsze aktualna - spróbuj nie używać zmiennych
-  - data powinna zawierać w sobie 4 cyfrowy, aktualny rok :)
-  - podpowiedź, aktualną datę możesz wygenerować używając:
-    const date = new Date();    
+- utwórz komponent UserDetails, który zawierać będzie avatar oraz imię użytkownika
+- użyj komponentu w Tweet zamiast dotychczasowego HTML
+- wyrenderuj 5 lub więcej Tweetów 
+  - bonus - jeżeli wiesz jak robi się to w React, użyj pętli :)
