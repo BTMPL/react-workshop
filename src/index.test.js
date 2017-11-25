@@ -101,5 +101,42 @@ describe("<TweetForm />", () => {
   it("obsługuje klikanie w guzik", () => {
     const wrapper = mount(<TweetForm />);
     expect(wrapper.find('button').props().onClick).toBeDefined();
-  })
+  });
+
+  it("obsługuje zmianę tekstu w polu", () => {
+    const wrapper = mount(<TweetForm />);
+    wrapper.find('textarea').simulate('change', {
+      target: {
+        value: 'test'
+      }
+    });
+    expect(wrapper.state().text).toEqual('test');
+  });
+
+  it("czyści pole po kliknięciu guzika", () => {
+    const wrapper = mount(<TweetForm />);
+    wrapper.find('textarea').simulate('change', {
+      target: {
+        value: 'test'
+      }
+    });
+    expect(wrapper.state().text).toEqual('test');
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state().text).not.toEqual('test');
+  });
+
+  it("akceptuje props onSubmit i wywołuje go z treścią formularza", (done) => {
+    const checkDone = (value) => {
+      expect(value).toEqual('test');
+      done();
+    }
+    const wrapper = mount(<TweetForm onSubmit={checkDone} />);
+    wrapper.find('textarea').simulate('change', {
+      target: {
+        value: 'test'
+      }
+    });
+    expect(wrapper.state().text).toEqual('test');
+    wrapper.find('button').simulate('click');
+  });  
 })

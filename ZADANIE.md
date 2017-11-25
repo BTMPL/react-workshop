@@ -1,6 +1,11 @@
-#14 Zdarzenia
+#15 Przekazywanie danych do rodzica
 
-- upewnij się, że formularz TweetForm jest komponentem klasowym
-- dodaj zdarzenie onClick do `<button>`, które wyświetli wartość z pola tekstowego
-  - jak odnaleźć pole tekstowe?
-    - document.getElementById?
+- nasze dane są tylko w komponencie TweetForm - co jeżeli chcemy dodać je do listy?
+- przekazywanie danych do rodziców za pomocą callbacków!
+
+- dodaj do TweetForm callback `onSubmit`, który wywołasz, jeżeli podano tekst i wciśnięto
+klawisz (jeżeli tekst jest pusty, nie wywołuj funkcji)
+
+- niech to rodzic `TweetForm` - `App` - wyświetli wartość pola (metodą `handleSubmit`)
+
+- użyj props by wymusić przekazanie `onSubmit`, lub `defaultProps` by dodać pustą funkcję
