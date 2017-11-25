@@ -27,7 +27,16 @@ describe("<UserDetails />", () => {
     const wrapper = mount(<UserDetails />);
     expect(wrapper.find('img').length).toEqual(1)
     expect(wrapper.find('b').length).toEqual(1)
-  });  
+  }); 
+  
+  it("akceptuje userName i userAvatar", () => {
+    const userName = "test.username";
+    const userAvatar = "test.useravatar";
+
+    const wrapper = mount(<UserDetails userName={userName} userAvatar={userAvatar} />);
+    expect(wrapper.html().indexOf(userName) > -1).toEqual(true);
+    expect(wrapper.html().indexOf(userAvatar) > -1).toEqual(true);
+  }); 
 })
 
 describe("<Tweet />", () => {
@@ -41,5 +50,17 @@ describe("<Tweet />", () => {
     const year = (new Date).getFullYear();
     const wrapper = mount(<Tweet />);
     expect(wrapper.find('time').html().indexOf(year) > -1).toEqual(true);
-  })
+  });
+
+  it("akceptuje userName, userAvatar i text", () => {
+    const userName = "test.username";
+    const userAvatar = "test.useravatar";
+    const text = "test.text";
+
+    const wrapper = mount(<Tweet userName={userName} userAvatar={userAvatar} text={text} />);
+    expect(wrapper.html().indexOf(userName) > -1).toEqual(true);
+    expect(wrapper.html().indexOf(userAvatar) > -1).toEqual(true);
+    expect(wrapper.html().indexOf(text) > -1).toEqual(true);
+  });  
+
 })

@@ -1,6 +1,8 @@
-#6 Unikanie powtarzania się
+#8 Przekazywanie danych do komponentu
 
-- utwórz komponent UserDetails, który zawierać będzie avatar oraz imię użytkownika
-- użyj komponentu w Tweet zamiast dotychczasowego HTML
-- wyrenderuj 5 lub więcej Tweetów 
-  - bonus - jeżeli wiesz jak robi się to w React, użyj pętli :)
+- dostęp do danych globalnych nie jest bezpieczny ani wydajny
+- przekaż dane (userName, userAvatar) do komponentu Tweet jako parametry
+  - pamiętaj, że do "przełączenia się w tryb JS" używamy znaczników {}
+  - parametry będą dostępne jako pierwszy parametr (Obiekt) przekazany do komponentu
+
+- przekaż treść tweeto jako parametr (text) do komponentu Tweet
