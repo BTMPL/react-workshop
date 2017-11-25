@@ -38,6 +38,15 @@ describe("<App />", () => {
     expect(wrapper.find(Tweet).length).toEqual(1);
   });
 
+    
+  it("wywołany bez tweetów wyświetla komunikat", () => {
+    const wrapper = mount(<App tweets={[]} />);
+    expect(wrapper.find(Tweet).length).toEqual(0);
+    expect(wrapper.html().indexOf('Twój Twiter jest pusty!') > -1).toEqual(true);
+  });
+
+    
+
   it("przepisuje this.props.tweets do this.state.tweets", () => {
     const tweets = [tweet];
     const wrapper = mount(<App tweets={tweets} />);
@@ -48,8 +57,9 @@ describe("<App />", () => {
     const tweets = [tweet];
     const str = 'test.text';
     const wrapper = mount(<App tweets={tweets} />);
-    wrapper.instance().handleSubmit(str);
-    expect(wrapper.state().tweets.length).toEqual(2);
+    const currentLength = wrapper.state().tweets.length;
+    wrapper.instance().handleSubmit(str);    
+    expect(wrapper.state().tweets.length).toEqual(currentLength + 1);
     expect(wrapper.state().tweets[0].text).toEqual(str);
   });   
 })

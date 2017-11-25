@@ -1,8 +1,6 @@
-#16 Aktualizowanie stanu rodzica
+#17 Obsługiwanie braku danych
 
-- wiemy już jak przekazać dane z dziecka do rodzica
-- dodajmy nowy Tweet!
-  - podpowiedź: pamiętaj o funkcji `this.setState`
-  - podpowiedź: do wykonania kopi aktualnej wartości zmiennej użyj `.concat()`, `.slice()` 
-    lub operatora spread
-- upewnij się, że nowy tweet dodany jest na górze strony (początku listy)
+- nasze komponenty nie zawsze będą miały od razu dane do wyświetlenia
+- dodaj do komponentu `App` obsługę nie wyświetlania listy tweetów, jeżeli 
+w stanie nie ma danych wyświetl tekst "Twój Twiter jest pusty!"
+- usuń przypisanie props do state aby przetestować
