@@ -1,7 +1,12 @@
-#5 Używanie JS w komponentach
+# #5 Używanie JS w komponentach
+
+## Zadanie
 
 - zapisz imię i link do avataru w zmiennych i wyświetl zmienne w JSX
-- spraw, by data pokazywana w <time> była zawsze aktualna - spróbuj nie używać zmiennych
+- spraw, by data pokazywana w `<time>` była zawsze aktualna - spróbuj nie używać zmiennych
   - data powinna zawierać w sobie 4 cyfrowy, aktualny rok :)
   - podpowiedź, aktualną datę możesz wygenerować używając:
-    const date = new Date();    
+
+```  
+    const date = new Date();
+```
