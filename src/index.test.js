@@ -3,6 +3,9 @@ import Enzyme, { mount } from "enzyme";
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
+jest.mock('./api/tweeter');
+const mockApi = require('./api/tweeter').default;
+
 /**
  * Z uwagi na sposób w jaki powstaje nasza aplikacja - linijka render() jest wywoływana
  * także w testach i aplikacja próbuje się wyrenderować. W normalnych aplikacjach, 
@@ -33,34 +36,17 @@ describe("<App />", () => {
     expect(App.toString().indexOf('class App extends') > -1).toEqual(true);
   });
 
-  it("akceptuje kolekcję Tweetów jako parametr", () => {
-    const wrapper = mount(<App tweets={[tweet]} />);
-    expect(wrapper.find(Tweet).length).toEqual(1);
-  });
 
-    
-  it("wywołany bez tweetów wyświetla komunikat", () => {
-    const wrapper = mount(<App tweets={[]} />);
-    expect(wrapper.find(Tweet).length).toEqual(0);
-    expect(wrapper.html().indexOf('Twój Twiter jest pusty!') > -1).toEqual(true);
-  });
+  it("po zamontowaniu próbuje pobrać dane", () => {
+    const wrapper = mount(<App  />);    
+    expect(mockApi.get).toBeCalled();
+  });   
 
-    
-
-  it("przepisuje this.props.tweets do this.state.tweets", () => {
-    const tweets = [tweet];
-    const wrapper = mount(<App tweets={tweets} />);
-    expect(wrapper.state().tweets).toEqual(tweets);
-  });  
-
-  it("po wywołaniu handleSubmit dodaje nowy tweet do kolekcji", () => {
-    const tweets = [tweet];
-    const str = 'test.text';
-    const wrapper = mount(<App tweets={tweets} />);
+  it("po wywołaniu handleSubmit próbuje przesłać Tweet do serwera", () => {
+    const wrapper = mount(<App />);
     const currentLength = wrapper.state().tweets.length;
-    wrapper.instance().handleSubmit(str);    
-    expect(wrapper.state().tweets.length).toEqual(currentLength + 1);
-    expect(wrapper.state().tweets[0].text).toEqual(str);
+    wrapper.instance().handleSubmit("test");  
+    expect(mockApi.post).toBeCalled();
   });   
 })
 
