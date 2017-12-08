@@ -1,12 +1,11 @@
-# #14 Zdarzenia
+# #14 Formularze kontrolowane
 
 ## Wprowadzenie
 
-- aplikacja powinna być interaktywna i reagować na akcje użytkownika
+- poznaliśmy już formularze niekontrolowane, których wartość odczytujemy za pomocą referencji
+- formularze kontrolowane mogą być odczytywane ale także swobodnie modyfikowane przez komponenty w cyklu życia
 
 ## Zadanie
 
-- upewnij się, że formularz TweetForm jest komponentem klasowym
-- dodaj zdarzenie onClick do `<button>`, które wyświetli wartość z pola tekstowego
-  - jak odnaleźć pole tekstowe?
-    - document.getElementById?
+- zmień pole komponentu `TweetForm` tak, by jego wartość była przechowywana jako `this.state.text`
+- po przesłaniu formularza wyczyść pole tekstowe poprzez aktualizację stanu
