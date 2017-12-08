@@ -1,7 +1,11 @@
-#9 propTypes i defaulltProps
+# #9 propTypes i defaulltProps
+
+## Wprowadzenie
 
 - używanie propTypes stanowi rodzaj dokumentacji komponentu
 - używanie defaultProps może uchronić nas przed problemami z wyświetlaniem "undefined"
+
+## Zadanie
 
 - dodaj do projektu pakiet "prop-types" pobierając jego domyślny eksport
 
