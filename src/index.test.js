@@ -48,7 +48,16 @@ describe("<App />", () => {
     const currentLength = wrapper.state().tweets.length;
     wrapper.instance().handleSubmit("test");  
     expect(mockApi.post).toBeCalled();
-  });   
+  });  
+  
+  it("renderuje komponent <Next />", (done) => {
+    const wrapper = mount(<App  />);    
+    setTimeout(() => {
+      wrapper.update();
+      if(wrapper.find(Next).length > 0) done();
+      else done.fail();
+    });
+  })
 })
 
 describe("<UserDetails />", () => {
