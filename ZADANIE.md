@@ -1,6 +1,7 @@
-#17 Obsługiwanie braku danych
+#18 Styl
 
-- nasze komponenty nie zawsze będą miały od razu dane do wyświetlenia
-- dodaj do komponentu `App` obsługę nie wyświetlania listy tweetów, jeżeli 
-w stanie nie ma danych wyświetl tekst "Twój Twiter jest pusty!"
-- usuń przypisanie props do state aby przetestować
+- w przypadku pracy z React mamy kilka opcji dodania styli i klas CSS do elementów
+- zmień wygląd aplikacji (wg. uznania)
+- wykorzystaj atrybut style i className
+  - możesz osadzić HTML w pliku public/index.html, ale zamiast tego spróbuj dodać style.css
+    - dlaczego nie wprowadzać zmian w index.css? zostanie on nadpisany kolejnymi branchami :)
