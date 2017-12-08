@@ -1,5 +1,7 @@
-#11 Komponenty stanowe w formie klasy
+# #11 Komponenty stanowe w formie klasy
 
-- zmieńmy nasz komponent App w komponent stanowy oparty o klasę React.Component
+## Zadanie
 
-- przekaż listę Tweetów jako prop (`tweets`) do App
+- zmieńmy nasz komponent `App` w komponent stanowy oparty o klasę `React.Component`
+
+- przekaż listę Tweetów jako prop (`tweets`) do `<App />`
