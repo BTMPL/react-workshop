@@ -20,6 +20,7 @@ const App = require("./index.js").default;
 const Tweet = require("./components/Tweet").Tweet;
 const UserDetails = require("./components/Tweet").UserDetails;
 const TweetForm = require("./components/TweetForm").default;
+const Next = require('./components/Next').default;
 
 const date = new Date().toString()
 const tweet = {
@@ -144,4 +145,12 @@ describe("<TweetForm />", () => {
     expect(wrapper.state().text).toEqual('test');
     wrapper.find('button').simulate('click');
   });  
+})
+
+describe("<Next />", () => {
+  it("wywołuje `onNext` po kliknięciu w button", (done) => {
+    const checkDone = () => done();
+    const wrapper = mount(<Next onNext={checkDone} />)
+    wrapper.find('button').simulate('click');
+  });
 })
