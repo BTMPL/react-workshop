@@ -1,26 +1,13 @@
-# #20 Komunikacja ze światem
+# #21 Stronicowanie
 
 ## Wprowadzenie
 
-- jedno-osobowy tweeter jest słaby - czas na komunikację ze światem!
-- w Twoim projekcie pojawił się nowy plik - `api/tweeter.js`
+- nasze API zwraca 10 ostatnich wpisów - ale w tym momencie pewnie jest ich już więcej
+- musimy dodać mechanizm pozwalający na pobieranie starszych informacji
 
 ## Zadanie
 
-- użyj funkcji `get()` w celu pobrania danych z serwera i wyświetl je w swojej aplikacji
-  ```
-    get().then(response => {
-      /**
-       * response = {
-       *  items: Array<Tweet>,
-       *  count: Number
-       * }
-       */
-    })
-  ```
-- użyj funkcji `create(userName, userAvatar, text)` w celu wysłania tweetu na serwer
-
-### Inne
-
-- ponieważ pobieramy teraz tweety innych użytkowników, oraz dodajemy swoje, nie powinniśmy używać indeksu jako `key` - zamiast tego użyj pola `id` stanowiącego część odpowiedzi z serwera
-- czym różni się pesymistyczne i optymistyczne pobieranie danych?
+- dodaj komponent `Next` (`./src/components/Next.js`, z eksportem domyślnym), który przyjmie 1 props `onNext` 
+  - komponent powinien renderować guzik - `<button>`, który po kliknięciu wywoła `onNext`
+- to komponent `App` powinien decydować czy pokazać `<Next />` i którą stronę wyników załadować po kliknięciu
+- nowo załadowane wyniki dodaj na koniec listy
