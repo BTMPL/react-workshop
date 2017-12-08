@@ -1,11 +1,13 @@
-#3 Komponenty
+# #3 Komponenty
 
-- utwórz komponent App i wyrenderuj w nim strukturę z poprzedniego zadania:
+## Zadanie
 
+- utwórz komponent `App` i wyrenderuj w nim strukturę z poprzedniego zadania:
+```
     <p>
       Witaj na <b>Warsztatach React</b>!
     </p> 
-
+```
 - wyeksportuj komponent jako eksport domyślny pliku    
 
-- użyj npm test aby sprawdzić, czy zadanie wykonałeś poprawnie
+- użyj `npm test` aby sprawdzić, czy zadanie wykonałeś poprawnie
