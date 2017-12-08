@@ -1,6 +1,13 @@
-#19 Porządki
+# #21 Stronicowanie
 
-- nasza aplikacja zaczyna się rozrastać - czas wprowadzić nieco porządków
-- utwórz pliki /src/components/Tweet.js i /src/components/TweetForm.js
-  - Tweet.js powinien zawierać komponenty Tweet i UserDetails i eksportować je jako nazwane eksporty
-  - TweetForm.js powinien zawierać komponent TweetForm i eksportować go jako domyślny komponent
+## Wprowadzenie
+
+- nasze API zwraca 10 ostatnich wpisów - ale w tym momencie pewnie jest ich już więcej
+- musimy dodać mechanizm pozwalający na pobieranie starszych informacji
+
+## Zadanie
+
+- dodaj komponent `Next` (`./src/components/Next.js`, z eksportem domyślnym), który przyjmie 1 props `onNext` 
+  - komponent powinien wyrenderować guzik - `<button>`, który po kliknięciu wywoła `onNext`
+- to komponent `App` powinien decydować czy pokazać `<Next />` i którą stronę wyników załadować po kliknięciu
+- nowo załadowane wyniki dodaj na koniec listy
