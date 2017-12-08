@@ -14,9 +14,9 @@ root.id = 'root';
 document.body.appendChild(root);
 
 const App = require("./index.js").default;
-const Tweet = require("./index.js").Tweet;
-const UserDetails = require("./index.js").UserDetails;
-const TweetForm = require("./index.js").TweetForm;
+const Tweet = require("./components/Tweet").Tweet;
+const UserDetails = require("./components/Tweet").UserDetails;
+const TweetForm = require("./components/TweetForm").default;
 
 const date = new Date().toString()
 const tweet = {
