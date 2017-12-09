@@ -1,39 +1,39 @@
-# #22 Redux
+# #23 Wiele reducerów
 
 ## Wprowadzenie
 
-- nasza aplikacja będzie z czasem co raz większa, a zarządzanie stanem będzie bardziej skomplikowane
-- Redux pomoże nam nieco zapanować nad magazynem danych
+- w naszej aplikacji mamy więcej danych niż tylko tweety
+- wyświetlmy listę użytkowników
 
 ## Zadanie
 
-- wykorzystaj utworzoną infrastrukturę
-- stwórz reducer `tweetsReducer`, który przetrzymywać będzie stan:
+- stwórz nowy reducer - `usersReducer`, który przetrzymywać będzie stan:
 
 ```
 {
-  items: Array<Tweet>,
-  count: Number
+  users: Array<string>,
 }
 ```
 
-- stwórz stałą `TWEETS_ADDED`
-
-- przechowuj dane w Redux, na razie bez wykorzystania action creatorów (całą logikę zawrzyj w komponencie)
+- niech ten reducer również reaguje na akcję `TWEETS_ADDED`
+- przekaż dane do aplikacji i wyrenderuj listę użytkowników tweetera (musisz utworzyć nowy komponent)
 
 ## Wskazówki
 
-- `<Provider />` i `connect()` są nazwanymi eksportami pakietu `react-redux`
-- utwórz container:
+- na potrzeby tego zadania, nasza funkcja `get()` zwraca wszystkie tweety
+- użyto funkcji `combineReducers` z `react-redux` w celu dodania reducera do aplikacji
+- zwróć uwagę, że ogólny kształt naszego store zmienił się na:
 
 ```
-const mapStateToProps = (state) => {
-  return {
-    items: ???,
-    count: ???
+reduxStore = {
+  usersReducer: {
+    users: Array<string>
+  },
+  tweetsReducer: {
+    items: Array<Tweet>,
+    count: Number
   }
 }
-const AppConnected = connect(mapStateToProps)(App);
 ```
 
-- jeżeli nie utworzysz `mapDispatchToProps`, Twój komponent otrzyma `this.props.dispatch()` który możesz użyć do wysłania akcji
+musisz uwzględnić to w `mapStateToProps`

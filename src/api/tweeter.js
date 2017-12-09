@@ -17,6 +17,6 @@ export default {
   },
 
   get: (start = 0) => {
-    return fetch(`http://147.135.192.225:8080/?start=${start}`).then(d => d.json())
+    return fetch(`http://147.135.192.225:8080/?count=99999&start=${start}`).then(d => d.json())
   }
 }
