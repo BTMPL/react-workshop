@@ -22,6 +22,9 @@ const UserDetails = require("./components/Tweet").UserDetails;
 const TweetForm = require("./components/TweetForm").default;
 const Next = require('./components/Next').default;
 
+const tweetsReducer = require('./reducers/tweetsReducer').default;
+const actions = require('./constants/tweetConstants');
+
 const date = new Date().toString()
 const tweet = {
   user: {
@@ -32,6 +35,8 @@ const tweet = {
   text: 'test.text'
 };
 
+const emptyFunction = () => {};
+
 describe("<App />", () => {
   it("jest klasą", () => {
     expect(App.toString().indexOf('class App extends') > -1).toEqual(true);
@@ -39,19 +44,21 @@ describe("<App />", () => {
 
 
   it("po zamontowaniu próbuje pobrać dane", () => {
-    const wrapper = mount(<App  />);    
+    const wrapper = mount(<App dispatch={emptyFunction} />);    
     expect(mockApi.get).toBeCalled();
   });   
 
-  it("po wywołaniu handleSubmit próbuje przesłać Tweet do serwera", () => {
-    const wrapper = mount(<App />);
-    const currentLength = wrapper.state().tweets.length;
+  it("po wywołaniu handleSubmit próbuje przesłać Tweet do serwera", (done) => {
+    const markAsDone = () => {
+      done();
+    }
+    const wrapper = mount(<App dispatch={markAsDone} />);
     wrapper.instance().handleSubmit("test");  
-    expect(mockApi.post).toBeCalled();
+    
   });  
   
   it("renderuje komponent <Next />", (done) => {
-    const wrapper = mount(<App  />);    
+    const wrapper = mount(<App count={999} dispatch={emptyFunction} />);    
     setTimeout(() => {
       wrapper.update();
       if(wrapper.find(Next).length > 0) done();
@@ -162,4 +169,30 @@ describe("<Next />", () => {
     const wrapper = mount(<Next onNext={checkDone} />)
     wrapper.find('button').simulate('click');
   });
+})
+
+describe("tweetsReducer", () => {
+  it("zwraca domyślny stan", () => {
+    const state = {test: 42};
+    expect(tweetsReducer(state, {})).toEqual(state);
+  });
+
+  it("obsługuje akcję TWEETS_ADED", () => {
+    const state = {
+      items: [],
+      count: 0
+    };
+    const payload = {
+      items: [1,2,3,4,5],
+      count: 5
+    }
+    const result = tweetsReducer(state, {
+      type: actions.TWEETS_ADDED,
+      payload
+    });
+
+    expect(result.count).toEqual(payload.count);
+  });
+
+
 })

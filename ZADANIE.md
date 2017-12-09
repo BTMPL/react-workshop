@@ -1,13 +1,39 @@
-# #21 Stronicowanie
+# #22 Redux
 
 ## Wprowadzenie
 
-- nasze API zwraca 10 ostatnich wpisów - ale w tym momencie pewnie jest ich już więcej
-- musimy dodać mechanizm pozwalający na pobieranie starszych informacji
+- nasza aplikacja będzie z czasem co raz większa, a zarządzanie stanem będzie bardziej skomplikowane
+- Redux pomoże nam nieco zapanować nad magazynem danych
 
 ## Zadanie
 
-- dodaj komponent bezstanowy `Next` (`./src/components/Next.js`, z eksportem domyślnym), który przyjmie 1 props `onNext` 
-  - komponent powinien renderować guzik - `<button>`, który po kliknięciu wywoła `onNext`
-- to komponent `App` powinien decydować czy pokazać `<Next />` i którą stronę wyników załadować po kliknięciu
-- nowo załadowane wyniki dodaj na koniec listy
+- wykorzystaj utworzoną infrastrukturę
+- stwórz reducer `tweetsReducer`, który przetrzymywać będzie stan:
+
+```
+{
+  items: Array<Tweet>,
+  count: Number
+}
+```
+
+- stwórz stałą `TWEETS_ADDED`
+
+- przechowuj dane w Redux, na razie bez wykorzystania action creatorów (całą logikę zawrzyj w komponencie)
+
+## Wskazówki
+
+- `<Provider />` i `connect()` są nazwanymi eksportami pakietu `react-redux`
+- utwórz container:
+
+```
+const mapStateToProps = (state) => {
+  return {
+    items: ???,
+    count: ???
+  }
+}
+const AppConnected = connect(mapStateToProps)(App);
+```
+
+- jeżeli nie utworzysz `mapDispatchToProps`, Twój komponent otrzyma `this.props.dispatch()` który możesz użyć do wysłania akcji
