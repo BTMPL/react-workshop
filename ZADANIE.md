@@ -7,6 +7,7 @@
 
 ## Zadanie
 
+- dodaj do aplikacji dwa nowe moduły - `redux` i `react-redux` (uwaga: zatrzymaj wpierw aplikację oraz testy!)
 - wykorzystaj utworzoną infrastrukturę
 - stwórz reducer `tweetsReducer`, który przetrzymywać będzie stan:
 
