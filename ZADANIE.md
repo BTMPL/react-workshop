@@ -6,7 +6,9 @@
 
 ## Zadanie
 
-- upewnij się, że formularz TweetForm jest komponentem klasowym
+- utwórz element `TweetForm` jako komponent klasowy
+- powinien on wyświetlać pole `<textarea>` i przycisk `<button>`
+- wyświetl go w `<App />`
 - dodaj zdarzenie onClick do `<button>`, które wyświetli wartość z pola tekstowego
   - jak odnaleźć pole tekstowe?
-    - document.getElementById?
+    - `document.getElementById`?
